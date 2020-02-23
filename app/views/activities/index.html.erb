@@ -1,4 +1,4 @@
-<h1>Saved activities</h1>
+<h1>Saved Activities</h1>
  
 <table>
   <tr>
@@ -13,6 +13,7 @@
       <td><%= activity.description %></td>
       <td><%= link_to 'Show', activity_path(activity) %></td>
       <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
+      <td><%= link_to 'Destroy', activity_path(activity), method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
 </table>
