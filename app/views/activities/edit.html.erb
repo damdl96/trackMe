@@ -1,10 +1,12 @@
-<h1>New activity</h1>
-
-<%= form_with scope: :activity, url: activities_path, local: true do |form| %>
+<h1>Edit Activity</h1>
+ 
+<%= form_with(model: @activity, local: true) do |form| %>
+ 
   <% if @activity.errors.any? %>
     <div id="error_explanation">
       <h2>
-        Whoops! looks like we have some trouble saving this activity:
+        <%= pluralize(@activity.errors.count, "error") %> prohibited
+        this article from being saved:
       </h2>
       <ul>
         <% @activity.errors.full_messages.each do |msg| %>
@@ -13,7 +15,7 @@
       </ul>
     </div>
   <% end %>
-
+ 
   <p>
     <label for="name">Activity name:</label>
     <%= form.text_field :name %>
@@ -28,7 +30,7 @@
     <%= form.submit %>
   </p>
 <% end %>
-
+ 
 <%= link_to 'Show Activities', activities_path %>
 <br>
-<%= link_to 'Go home', root_path %>
+<%= link_to 'Go home', root_path  %>
