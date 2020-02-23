@@ -25,4 +25,6 @@ Things you may want to cover:
 
 ## Gems installed for this project
 
-* [Mysql2](
+* [Mysql2](https://github.com/brianmario/mysql2)
+
+  
