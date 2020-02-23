@@ -1,0 +1,19 @@
+<h1>Saved activities</h1>
+ 
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+  </tr>
+ 
+  <% @activities.each do |activity| %>
+    <tr>
+      <td><%= activity.name %></td>
+      <td><%= activity.description %></td>
+      <td><%= link_to 'Show', activity_path(activity) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Go home', root_path %>
