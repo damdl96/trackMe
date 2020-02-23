@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  activityname: MyString
+  timestart: 2020-02-22 21:16:51
+  timeend: 2020-02-22 21:16:51
+  notes: MyText
+
+two:
+  activityname: MyString
+  timestart: 2020-02-22 21:16:51
+  timeend: 2020-02-22 21:16:51
+  notes: MyText
