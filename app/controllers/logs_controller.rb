@@ -3,8 +3,14 @@ class LogsController < ApplicationController
     @log = Log.new
   end
 
+  def index
+    @logs = Log.all
+  end
+
   def show
     @log = Log.find(params[:id])
+    times = @log.timestart
+    timee = @log.timeend
   end
 
   def create

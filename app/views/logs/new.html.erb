@@ -2,7 +2,7 @@
 
 <%= form_with(model: [@log], local: true) do |form| %>
   <label for="name">Activity name:</label>
-  <%= form.collection_select(:activityname, Activity.all, :id, :name, { :prompt => 'Select an activity', :selected => @log.activityname }) %>
+  <%= form.collection_select(:activityname, Activity.all, :name, :name, { :prompt => 'Select an activity', :selected => @log.activityname }) %>
   <p>
     <label for="timestart">Start time:</label>
     <%= form.time_select :timestart, default: {hour: 0, min: 0} %>
@@ -21,4 +21,6 @@
   </p>
 <% end %>
 
+<%= link_to 'Show Log', logs_path %>
+<br>
 <%= link_to 'Go home', root_path %>
