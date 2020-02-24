@@ -1,6 +1,20 @@
 <h1>Log an Activity...</h1>
 
 <%= form_with(model: [@log], local: true) do |form| %>
+
+  <% if @log.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        Whoops! looks like we have some trouble saving this log:
+      </h2>
+      <ul>
+        <% @log.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
   <label for="name">Activity name:</label>
   <%= form.collection_select(:activityname, Activity.all, :name, :name, { :prompt => 'Select an activity', :selected => @log.activityname }) %>
   <p>
@@ -15,7 +29,7 @@
     <label for="description">Notes:</label><br>
     <%= form.text_area :notes %>
   </p>
-  
+
   <p>
     <%= form.submit %>
   </p>
