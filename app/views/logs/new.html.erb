@@ -1,0 +1,24 @@
+<h1>Log an Activity...</h1>
+
+<%= form_with(model: [@log], local: true) do |form| %>
+  <label for="name">Activity name:</label>
+  <%= form.collection_select(:activityname, Activity.all, :id, :name, { :prompt => 'Select an activity', :selected => @log.activityname }) %>
+  <p>
+    <label for="timestart">Start time:</label>
+    <%= form.time_select :timestart, default: {hour: 0, min: 0} %>
+  </p>
+  <p>
+    <label for="timeend">Time end:</label>
+    <%= form.time_select :timeend, default: {hour: 0, min: 0} %>
+  </p>
+  <p>
+    <label for="description">Notes:</label><br>
+    <%= form.text_area :notes %>
+  </p>
+  
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Go home', root_path %>
