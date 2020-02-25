@@ -9,8 +9,6 @@ class LogsController < ApplicationController
 
   def show
     @log = Log.find(params[:id])
-    times = @log.timestart
-    timee = @log.timeend
   end
 
   def create
