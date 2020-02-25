@@ -21,6 +21,12 @@ class LogsController < ApplicationController
     end
   end
 
+  def destroy
+    @log = Log.find(params[:id])
+    @log.destroy
+    redirect_to logs_path
+  end
+
   private
   def log_params
     params.require(:log).permit(:activityname, :timestart, :timeend, :notes)

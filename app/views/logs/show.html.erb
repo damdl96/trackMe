@@ -5,16 +5,19 @@
  
 <p>
   <strong>Start time:</strong>
-  <%= @log.timestart %>
+  <%= @log.timestart.to_s(:time) %>
 </p>
 
 <p>
   <strong>Ending time:</strong>
-  <%= @log.timeend %>
+  <%= @log.timeend.to_s(:time) %>
 </p>
 
 <p>
   <strong>Notes:</strong>
   <%= @log.notes %>
 </p>
+
+<%= link_to 'Delete', log_path(@log.id), method: :delete, data: { confirm: "Are you sure you want to delete the logged activity #{@log.activityname}?" } %>
+<br>
 <%= link_to 'Back', logs_path %>
