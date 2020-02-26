@@ -18,3 +18,31 @@
  blockquote {
    padding-top: 2em;
  }
+
+ .custom-header {
+   font-size: 3em;
+   font-weight: 420;
+   padding-left: 2em;
+   padding-bottom: .8em;
+   padding-top: .4em;
+ }
+
+ .custom-header2 {
+  font-weight: 420;
+  padding-left: 2em;
+  padding-bottom: .8em;
+  padding-top: .4em;
+ }
+
+ .vertical-center {
+  display: flexbox;
+  align-items: center;
+}
+
+ .my-padding {
+   padding-left: 6em;
+ }
+
+ input[type=text]:focus {
+  background-color: #FDCE4B;
+}
