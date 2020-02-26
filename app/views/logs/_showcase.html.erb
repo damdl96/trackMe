@@ -1,0 +1,31 @@
+
+<div class="d-flex justify-content-center">
+  <div class="container contain"">
+    <div class="row bgcolor">
+      <div class="col-2 inner_column_top inner_column bgtop">
+        Name
+      </div>
+      <div class="col-6 inner_column_top inner_column bgtop">
+        Notes
+      </div>
+      <div class="col-4 inner_column_top bgtop">
+      </div>
+    </div>
+    <% @logs.each do |log| %>
+      <div class="row align-items-center addmargin">
+        <div class="col-2 inner_column">
+          <%= log.activityname %>
+        </div>
+        <div class="col-6 inner_column">
+          <%= log.notes %>
+        </div>
+        <div class="col-2 inner_column">
+          <%= link_to 'Show', log_path(log), class: "badge badge-pill badge-primary" %>
+        </div>
+        <div class="col-2 inner_column_noborder">
+          <%= link_to 'Delete', log_path(log), method: :delete, data: { confirm: "Are you sure you want to delete the activity:\n\nName: #{log.activityname}" }, class: "badge badge-pill badge-danger" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
