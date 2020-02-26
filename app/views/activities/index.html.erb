@@ -6,10 +6,10 @@
       <div class="col-2 inner_column_top inner_column bgtop">
         Name
       </div>
-      <div class="col-4 inner_column_top inner_column bgtop">
+      <div class="col-6 inner_column_top inner_column bgtop">
         Description
       </div>
-      <div class="col-6 inner_column_top bgtop">
+      <div class="col-4 inner_column_top bgtop">
       </div>
     </div>
     <% @activities.each do |activity| %>
@@ -17,17 +17,14 @@
         <div class="col-2 inner_column">
           <%= activity.name %>
         </div>
-        <div class="col-4 inner_column">
+        <div class="col-6 inner_column">
           <%= activity.description %>
-        </div>
-        <div class="col-2 inner_column">
-          <%= link_to 'Show', activity_path(activity), class: "badge badge-pill badge-primary" %>
         </div>
         <div class="col-2 inner_column">
           <%= link_to 'Edit', edit_activity_path(activity), class: "badge badge-pill badge-warning"%>
         </div>
         <div class="col-2 inner_column_noborder">
-          <%= link_to 'Delete', activity_path(activity), method: :delete, data: { confirm: 'Are you sure?' }, class: "badge badge-pill badge-danger" %>
+          <%= link_to 'Delete', activity_path(activity), method: :delete, data: { confirm: "Are you sure you want to delete the activity:\n\nName: #{activity.name}\nDescription: #{activity.description}" }, class: "badge badge-pill badge-danger" %>
         </div>
       </div>
     <% end %>
