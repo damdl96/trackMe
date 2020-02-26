@@ -19,16 +19,16 @@
   <% if @activity.errors.any? %>
     <br>
     <div class = "container">
-    <div class="alert alert-danger" role="alert">
-      <h4 class="alert-heading">Whoops!</h4>
-      <p>looks like we have some trouble saving this activity:</p>
-      <hr>
-      <ul class="my-padding">
-        <% @activity.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
+      <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Whoops!</h4>
+        <p>looks like we have some trouble saving this activity:</p>
+        <hr>
+        <ul class="my-padding">
+          <% @activity.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 <% end %>

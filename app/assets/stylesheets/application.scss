@@ -15,6 +15,29 @@
  // Custom bootstrap variables must be set or imported *before* bootstrap.
  @import "bootstrap";
 
+ .inner_column_top {
+  border-bottom: solid 1px #0000008f;
+  text-align: center;
+ }
+
+ .bgtop {
+   background-color: #FDCE4B;
+ }
+ 
+ .inner_column {
+  border-right: solid 1px #0000008f;
+  text-align: center;
+ }
+
+ .inner_column_noborder {
+  text-align: center;
+ }
+
+ .contain {
+   border-radius: .3em;
+   border: solid .2em #0000008f;
+ }
+
  blockquote {
    padding-top: 2em;
  }
@@ -23,7 +46,7 @@
    font-size: 3em;
    font-weight: 420;
    padding-left: 2em;
-   padding-bottom: .8em;
+   padding-bottom: .6em;
    padding-top: .4em;
  }
 
@@ -33,11 +56,6 @@
   padding-bottom: .8em;
   padding-top: .4em;
  }
-
- .vertical-center {
-  display: flexbox;
-  align-items: center;
-}
 
  .my-padding {
    padding-left: 6em;
