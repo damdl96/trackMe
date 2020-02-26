@@ -1,27 +1,39 @@
-<h1>Logged Activities</h1>
- 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Starting Hour</th>
-    <th>Ending Hour</th>
-    <th>Notes</th>
-  </tr>
- 
-  <% @logs.each do |log| %>
-    <tr>
-      <td><%= log.activityname %></td>
-      <td><%= log.timestart.to_s(:time) %></td>
-      <td><%= log.timeend.to_s(:time) %></td>
-      <td><%= log.notes %></td>
-      <td><%= link_to 'Show', log_path(log) %></td>
-      <td><%= link_to 'Delete', log_path(log.id), method: :delete, data: { confirm: "Are you sure you want to delete the logged activity #{log.activityname}?" } %></td>
-    </tr>
-  <% end %>
-</table>
+<h1 class="custom-header">Logged Activities</h1>
 
-<br>
-<%= link_to 'Log an Activity', new_log_path%> // 
-<%= link_to 'Create activity', new_activity_path%> // 
-<%= link_to 'Show logged activities today', logstoday_path %> // 
-<%= link_to 'Go home', root_path %>
+<div class="d-flex justify-content-center">
+  <div class="container contain"">
+    <div class="row bgcolor">
+      <div class="col-2 inner_column_top inner_column bgtop">
+        Name
+      </div>
+      <div class="col-6 inner_column_top inner_column bgtop">
+        Notes
+      </div>
+      <div class="col-4 inner_column_top bgtop">
+      </div>
+    </div>
+    <% @logs.each do |log| %>
+      <div class="row align-items-center addmargin">
+        <div class="col-2 inner_column">
+          <%= log.activityname %>
+        </div>
+        <div class="col-6 inner_column">
+          <%= log.notes %>
+        </div>
+        <div class="col-2 inner_column">
+          <%= link_to 'Show', log_path(log), class: "badge badge-pill badge-primary" %>
+        </div>
+        <div class="col-2 inner_column_noborder">
+          <%= link_to 'Delete', log_path(log), method: :delete, data: { confirm: "Are you sure you want to delete the activity:\n\nName: #{log.activityname}" }, class: "badge badge-pill badge-danger" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="my-padding pt-4">
+  <%= link_to '<button class="btn btn-secondary" type="button">Log an activity</button>'.html_safe, new_log_path %>
+  <%= link_to '<button class="btn btn-secondary" type="button">Logged today</button>'.html_safe, logstoday_path %>
+  <%= link_to '<button class="btn btn-secondary" type="button">Create an activity</button>'.html_safe, new_activity_path %>
+  <%= link_to '<button class="btn btn-secondary" type="button">Go home</button>'.html_safe, root_path %>
+</div>
