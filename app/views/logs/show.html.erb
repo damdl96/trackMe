@@ -5,6 +5,7 @@
       <h5>Activity name:</h5>
       <%= @log.activityname %>
     </li>
+    <% if @log.timestart.to_s(:time) != '00:00' && @log.timeend.to_s(:time) != '00:00' %>
     <li class="list-group-item">
       <h5>Start time:</h5>
       <%= @log.timestart.to_s(:time) %>
@@ -13,13 +14,27 @@
       <h5>Ending time:</h5>
       <%= @log.timeend.to_s(:time) %>
     </li>
+    <% else %>
+    <li class="list-group-item">
+      <h5>Start time:</h5>
+       -
+    </li>
+    <li class="list-group-item">
+      <h5>Ending time:</h5>
+       -
+    </li>
+    <% end %>
     <li class="list-group-item">
       <h5>Notes:</h5>
-      <%= @log.notes %>
+      <% if @log.notes != '' %>
+        <%= @log.notes %>
+      <% else %>
+        -
+      <% end %>
     </li>
     <li class="list-group-item">
       <h5>Created at:</h5>
-      <%= @log.created_at.strftime("%B %e %Y at %T") %>
+      <%= @log.created_at.strftime("%B %e %Y at %H:%M") %>
     </li>
   </ul>
 </div>

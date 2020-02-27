@@ -17,17 +17,17 @@
           <%= log.activityname %>
         </div>
         <div class="col-6 inner_column">
-          <% if log.notes == '' %>
-            -
-          <% else %>
+          <% if log.notes != '' %>
             <%= log.notes %>
+          <% else %>
+            -
           <% end %>
         </div>
         <div class="col-2 inner_column">
           <%= link_to 'Show', log_path(log), class: "badge badge-pill badge-primary" %>
         </div>
         <div class="col-2 inner_column_noborder">
-          <%= link_to 'Delete', log_path(log), method: :delete, data: { confirm: "Are you sure you want to delete the activity:\n\nName: #{log.activityname}" }, class: "badge badge-pill badge-danger" %>
+          <%= link_to 'Delete', log_path(log), method: :delete, data: { confirm: "Are you sure you want to delete the logged activity #{log.activityname}?" }, class: "badge badge-pill badge-danger" %>
         </div>
       </div>
     <% end %>

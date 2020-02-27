@@ -18,7 +18,11 @@
           <%= activity.name %>
         </div>
         <div class="col-6 inner_column">
-          <%= activity.description %>
+          <% if activity.description != '' %>
+            <%= activity.description %>
+          <% else %>
+            -
+          <% end %>
         </div>
         <div class="col-2 inner_column">
           <%= link_to 'Edit', edit_activity_path(activity), class: "badge badge-pill badge-warning"%>
