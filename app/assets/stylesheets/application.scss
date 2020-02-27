@@ -18,6 +18,7 @@
  .inner_column_top {
   border-bottom: solid 1px #0000008f;
   text-align: center;
+  padding-bottom: .1em;
  }
 
  .bgtop {
@@ -28,15 +29,17 @@
  .inner_column {
   border-right: solid 1px #0000008f;
   text-align: center;
+  padding-bottom: .1em;
  }
 
  .inner_column_noborder {
   text-align: center;
+  padding-bottom: .1em;
  }
 
  .contain {
    border-radius: .3em;
-   border: solid .2em #0000008f;
+   border: solid .1em #0000008f;
  }
 
  blockquote {
