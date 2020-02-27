@@ -62,6 +62,15 @@
    padding-left: 6em;
  }
 
- input[type=text]:focus {
+ input:focus {
   background-color: #FDCE4B;
+}
+
+textarea:focus {
+  background-color: #FDCE4B;
+  columns: 50;
+}
+
+.custompad {
+  padding-left: 10%;
 }
