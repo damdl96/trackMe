@@ -17,7 +17,11 @@
           <%= log.activityname %>
         </div>
         <div class="col-6 inner_column">
-          <%= log.notes %>
+          <% if log.notes == '' %>
+            -
+          <% else %>
+            <%= log.notes %>
+          <% end %>
         </div>
         <div class="col-2 inner_column">
           <%= link_to 'Show', log_path(log), class: "badge badge-pill badge-primary" %>
