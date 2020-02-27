@@ -29,10 +29,10 @@
             <%= link_to 'Log an activity', new_log_path, :class => current_class?(new_log_path) + " nav-link"%>
           </li>
           <li class="nav-item">
-            <%= link_to 'Show logged activities today', logstoday_path, :class => current_class?(logstoday_path) + " nav-link"%>
+            <%= link_to 'Full log', logs_path, :class => current_class?(logs_path) + " nav-link"%>
           </li>
           <li class="nav-item">
-            <%= link_to 'Show all logged activities', logs_path, :class => current_class?(logs_path) + " nav-link"%>
+            <%= link_to 'HelpMe!', helpme_path, :class => current_class?(helpme_path) + " nav-link"%>
           </li>
         </ul>
       </div>

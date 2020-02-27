@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
-  resources :activities, :logs
-
   get 'logstoday', to: 'logs#today'
+  get 'helpme', to: 'help#index'
+  root 'logs#today'
+  resources :activities, :logs
 end
