@@ -1,29 +1,36 @@
 
 <%= form_with model: @activity, local: true do |form| %>
+  <div class="custompad">
+    <div class="row justify-content-start pb-4 pt-4">
+      <div class="col-12 pb-3">
+        <label for="name">Activity name:</label>
+        <%= form.text_field :name %>
+      </div>
+      <div class="col-12 pb-3">
+        <label for="description" class="align-top">Description:</label>
+        <%= form.text_area :description, cols: "35", rows: "3"%>
+      </div>
+  </div>
+  </div>
+  <div class="my-padding pt-4">
+    <%= form.submit :Submit, class: "btn btn-warning", style: "margin-bottom: .5em;"%> <br>
+    <%= link_to '<button class="btn btn-secondary" type="button" style="margin-bottom: .5em;">My activities</button>'.html_safe, activities_path %>
+    <%= link_to '<button class="btn btn-secondary" type="button" style="margin-bottom: .5em;">Log an activity</button>'.html_safe, new_log_path %>
+    <%= link_to '<button class="btn btn-secondary" type="button" style="margin-bottom: .5em;">Go home</button>'.html_safe, root_path %>
+  </div>
   <% if @activity.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        Whoops! looks like we have some trouble saving this activity:
-      </h2>
-      <ul>
-        <% @activity.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
+    <br>
+    <div class = "container">
+      <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Whoops!</h4>
+        <p>looks like we have some trouble saving this activity:</p>
+        <hr>
+        <ul class="my-padding">
+          <% @activity.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
-
-  <p>
-    <label for="name">Activity name:</label>
-    <%= form.text_field :name %>
-  </p>
- 
-  <p>
-    <label for="description">Description:</label><br>
-    <%= form.text_area :description %>
-  </p>
- 
-  <p>
-    <%= form.submit %>
-  </p>
 <% end %>

@@ -1,27 +1,9 @@
-<h1>Logged Activities</h1>
- 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Starting Hour</th>
-    <th>Ending Hour</th>
-    <th>Notes</th>
-  </tr>
- 
-  <% @logs.each do |log| %>
-    <tr>
-      <td><%= log.activityname %></td>
-      <td><%= log.timestart.to_s(:time) %></td>
-      <td><%= log.timeend.to_s(:time) %></td>
-      <td><%= log.notes %></td>
-      <td><%= link_to 'Show', log_path(log) %></td>
-      <td><%= link_to 'Delete', log_path(log.id), method: :delete, data: { confirm: "Are you sure you want to delete the logged activity #{log.activityname}?" } %></td>
-    </tr>
-  <% end %>
-</table>
+<h1 class="custom-header">My logbook...</h1>
 
-<br>
-<%= link_to 'Log an Activity', new_log_path%> // 
-<%= link_to 'Create activity', new_activity_path%> // 
-<%= link_to 'Show logged activities today', logstoday_path %> // 
-<%= link_to 'Go home', root_path %>
+<%= render 'showcase' %>
+
+<div class="my-padding pt-4">
+  <%= link_to '<button class="btn btn-secondary" type="button" style="margin-bottom: .5em;">Log an activity</button>'.html_safe, new_log_path %>
+  <%= link_to '<button class="btn btn-secondary" type="button" style="margin-bottom: .5em;">Create an activity</button>'.html_safe, new_activity_path %>
+  <%= link_to '<button class="btn btn-secondary" type="button" style="margin-bottom: .5em;">Go home</button>'.html_safe, root_path %>
+</div>

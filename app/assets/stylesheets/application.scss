@@ -14,3 +14,85 @@
 
  // Custom bootstrap variables must be set or imported *before* bootstrap.
  @import "bootstrap";
+
+ .inner_column_top {
+  border-bottom: solid 1px #0000008f;
+  text-align: center;
+  padding-bottom: .1em;
+ }
+
+ .bgtop {
+   background-color: #FDCE4B;
+   font-weight: bold;
+ }
+ 
+ .inner_column {
+  border-right: solid 1px #0000008f;
+  text-align: center;
+  padding-bottom: .1em;
+ }
+
+ .inner_column_noborder {
+  text-align: center;
+  padding-bottom: .1em;
+ }
+
+ .contain {
+   border-radius: .3em;
+   border: solid .1em #0000008f;
+ }
+
+ blockquote {
+   padding-top: 2em;
+ }
+
+ .custom-header {
+   font-size: 3em;
+   font-weight: 420;
+   padding-left: 2em;
+   padding-bottom: .6em;
+   padding-top: .4em;
+ }
+
+ .custom-header2 {
+  font-weight: 420;
+  padding-left: 2em;
+  padding-bottom: .8em;
+  padding-top: .4em;
+ }
+
+ .my-padding {
+   padding-left: 6em;
+ }
+
+ input:focus {
+  background-color: #FDCE4B;
+}
+
+textarea:focus {
+  background-color: #FDCE4B;
+  columns: 50;
+}
+
+.custompad {
+  padding-left: 10%;
+}
+
+.thinmeup {
+  font-weight: 240;
+}
+
+.textmeup {
+  max-width: 80%;
+  text-align: justify;
+}
+
+.sendmeleft {
+  padding-left: 10%;
+}
+
+.sendmeright {
+  text-align: end; 
+  padding-right: 10%;
+}
+

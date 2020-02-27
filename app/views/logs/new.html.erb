@@ -1,41 +1,41 @@
-<h1>Log an Activity...</h1>
+<h1 class="custom-header">Log an Activity...</h1>
 
-<%= form_with(model: [@log], local: true) do |form| %>
-
+<%= form_with(model: [@log], local: true) do |form|%>
+  <div class="custompad">
+    <div class="form-group">
+      <label for="name">Activity name:</label>
+      <%= form.collection_select(:activityname, Activity.all, :name, :name, { :prompt => 'Select an activity', :selected => @log.activityname }) %>
+    </div>
+    <div class="form-group">
+      <label for="timestart">Start time:</label>
+      <%= form.time_select :timestart, default: {hour: 0, min: 0} %>
+      <label for="timeend">Time end:</label>
+      <%= form.time_select :timeend, default: {hour: 0, min: 0} %>
+    </div>
+    <div class="form-group">
+      <label for="description" class="align-top">Notes:</label>
+      <%= form.text_area :notes, cols: "35", rows: "3"%>
+    </div>
+  </div>
+  <div class="my-padding pt-4">
+    <%= form.submit :Submit, class: "btn btn-warning", style: "margin-bottom: .5em;"%> <br>
+    <%= link_to '<button class="btn btn-secondary" type="button" style="margin-bottom: .5em;">Logbook</button>'.html_safe, logs_path %>
+    <%= link_to '<button class="btn btn-secondary" type="button" style="margin-bottom: .5em;">Create an Activity</button>'.html_safe, new_activity_path %>
+    <%= link_to '<button class="btn btn-secondary" type="button" style="margin-bottom: .5em;">Go home</button>'.html_safe, root_path %>
+  </div>
   <% if @log.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        Whoops! looks like we have some trouble saving this log:
-      </h2>
-      <ul>
-        <% @log.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
+    <br>
+    <div class = "container">
+      <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Whoops!</h4>
+        <p>looks like we have some trouble saving this activity:</p>
+        <hr>
+        <ul class="my-padding">
+          <% @log.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
-  
-  <label for="name">Activity name:</label>
-  <%= form.collection_select(:activityname, Activity.all, :name, :name, { :prompt => 'Select an activity', :selected => @log.activityname }) %>
-  <p>
-    <label for="timestart">Start time:</label>
-    <%= form.time_select :timestart, default: {hour: 0, min: 0} %>
-  </p>
-  <p>
-    <label for="timeend">Time end:</label>
-    <%= form.time_select :timeend, default: {hour: 0, min: 0} %>
-  </p>
-  <p>
-    <label for="description">Notes:</label><br>
-    <%= form.text_area :notes %>
-  </p>
-
-  <p>
-    <%= form.submit %>
-  </p>
 <% end %>
-
-<br>
-<%= link_to 'Show Log', logs_path %> // 
-<%= link_to 'Create activity', new_activity_path%> // 
-<%= link_to 'Go home', root_path %>
