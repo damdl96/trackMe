@@ -12,25 +12,33 @@
       <div class="col-4 inner_column_top bgtop">
       </div>
     </div>
-    <% @activities.each do |activity| %>
+    <% if @activities.blank? %>
       <div class="row align-items-center addmargin">
-        <div class="col-2 inner_column">
-          <%= activity.name %>
-        </div>
-        <div class="col-6 inner_column">
-          <% if activity.description != '' %>
-            <%= activity.description %>
-          <% else %>
-            -
-          <% end %>
-        </div>
-        <div class="col-2 inner_column">
-          <%= link_to 'Edit', edit_activity_path(activity), class: "badge badge-pill badge-warning"%>
-        </div>
-        <div class="col-2 inner_column_noborder">
-          <%= link_to 'Delete', activity_path(activity), method: :delete, data: { confirm: "Are you sure you want to delete the activity:\n\nName: #{activity.name}\nDescription: #{activity.description}" }, class: "badge badge-pill badge-danger" %>
+        <div class="col-12" style="text-align: center;">
+          No activities saved.
         </div>
       </div>
+    <% else %>
+      <% @activities.each do |activity| %>
+        <div class="row align-items-center addmargin">
+          <div class="col-2 inner_column">
+            <%= activity.name %>
+          </div>
+          <div class="col-6 inner_column">
+            <% if activity.description != '' %>
+              <%= activity.description %>
+            <% else %>
+              -
+            <% end %>
+          </div>
+          <div class="col-2 inner_column">
+            <%= link_to 'Edit', edit_activity_path(activity), class: "badge badge-pill badge-warning"%>
+          </div>
+          <div class="col-2 inner_column_noborder">
+            <%= link_to 'Delete', activity_path(activity), method: :delete, data: { confirm: "Are you sure you want to delete the activity:\n\nName: #{activity.name}\nDescription: #{activity.description}" }, class: "badge badge-pill badge-danger" %>
+          </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>

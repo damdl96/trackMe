@@ -11,25 +11,33 @@
       <div class="col-4 inner_column_top bgtop">
       </div>
     </div>
-    <% @logs.each do |log| %>
+    <% if @logs.blank? %>
       <div class="row align-items-center addmargin">
-        <div class="col-2 inner_column">
-          <%= log.activityname %>
-        </div>
-        <div class="col-6 inner_column">
-          <% if log.notes != '' %>
-            <%= log.notes %>
-          <% else %>
-            -
-          <% end %>
-        </div>
-        <div class="col-2 inner_column">
-          <%= link_to 'Show', log_path(log), class: "badge badge-pill badge-primary" %>
-        </div>
-        <div class="col-2 inner_column_noborder">
-          <%= link_to 'Delete', log_path(log), method: :delete, data: { confirm: "Are you sure you want to delete the logged activity #{log.activityname}?" }, class: "badge badge-pill badge-danger" %>
+        <div class="col-12" style="text-align: center;">
+          No activities logged.
         </div>
       </div>
+    <% else %>
+      <% @logs.each do |log| %>
+        <div class="row align-items-center addmargin">
+          <div class="col-2 inner_column">
+            <%= log.activityname %>
+          </div>
+          <div class="col-6 inner_column">
+            <% if log.notes != '' %>
+              <%= log.notes %>
+            <% else %>
+              -
+            <% end %>
+          </div>
+          <div class="col-2 inner_column">
+            <%= link_to 'Show', log_path(log), class: "badge badge-pill badge-primary" %>
+          </div>
+          <div class="col-2 inner_column_noborder">
+            <%= link_to 'Delete', log_path(log), method: :delete, data: { confirm: "Are you sure you want to delete the logged activity #{log.activityname}?" }, class: "badge badge-pill badge-danger" %>
+          </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
