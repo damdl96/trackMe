@@ -17,22 +17,59 @@
 
 ## Setup!
 
+Once we have this repo cloned, we have to run the next command in the root of our project:
 
+```bash
+bundle install
+```
 
-* Ruby version
+once we do this, the command will install all the dependencies of the project.
 
-* System dependencies
+Now, we have to set up our database, all we need to do is create the shell of our database because active directory will help us creating all the tables and relations in our database, for this we must acces mysql by terminal or workbench and run the next command:
 
-* Configuration
+```sql
+CREATE DATABASE 'trackme';
+```
 
-* Database creation
+Now, we have to acces the file `config/database.yml` in the project to configure the databse credentials:
 
-* Database initialization
+```yml
+default: &default
+  adapter: mysql2
+  username: USER			#database user (ej. root)
+  password: PASSWORD	#database user password
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
 
-* How to run the test suite
+development:
+  <<: *default
+  database: DBNAME		#Here we have to put the name of the database we created on mysql
+  
+test:
+  <<: *default
+  database: DBNAME		#Same in here
 
-* Services (job queues, cache servers, search engines, etc.)
+production:
+  <<: *default
+  database: DBNAME		#Same in here
 
-* Deployment instructions
+```
 
-* ...
+**Note:** A better practice its to use different instances of the same database for a more secure enviroment.
+
+Once we did that, we have to create a migration of the database stablished in our project (`db/migrate/20200223031651_create_logs.rb`), for this, we have to run the next command in our terminal on the root of the project:
+
+```bash
+rails db:migrate
+```
+
+This will generate the schema on our database.
+
+Lastly we have to run our server, for this we have to run the next command on the root of our project:
+
+```bash
+rails s
+```
+
+And thats it, our project is live in a development server.
+
